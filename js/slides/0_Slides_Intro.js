@@ -55,7 +55,7 @@ SLIDES.push({
 		self.add({
 			id:"title", type:"TextBox",
 			x:130, y:80, width:700,
-			size:100, lineHeight:0.9, align:"center",
+			size:80, lineHeight:1.5, align:"center",
 			text_id:"title"
 		});
 		self.add({
