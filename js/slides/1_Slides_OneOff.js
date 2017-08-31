@@ -83,6 +83,7 @@ SLIDES.push({
 
 	},
 	onend: function(self){
+        //self.remove("topWords");
 		self.remove("btmWords");
 	}
 
@@ -112,7 +113,38 @@ SLIDES.push({
 		self.remove("btnCooperate");
 		self.add({
 			id:"btnNext", type:"Button", x:304, y:481, size:"long",
-			text_id:"oneoff_button_next", 
+			text_id:"oneoff_button_next1", 
+			message:"slideshow/next"
+		});
+	},
+	onend: function(self){
+		self.remove("topWords");
+		self.remove("btmWords");
+		self.remove("btnNext");
+	}
+
+  },{
+	onstart: function(self){
+
+		var o = self.objects;
+
+		// Payoff
+		o.iterated.dehighlightPayoff();
+		o.iterated.highlightPayoff(PD.PAYOFFS.P);
+
+        self.add({
+			id:"topWords", type:"TextBox", text_id:"oneoff_3_top",
+			x:130, y:10, width:700, height:100, align:"center"
+		});
+        self.add({
+			id:"btmWords", type:"TextBox", text_id:"oneoff_3_btm",
+			x:130, y:392, width:700, height:100, align:"center"
+		});
+
+		// Replace button
+		self.add({
+			id:"btnNext", type:"Button", x:304, y:481, size:"long",
+			text_id:"oneoff_button_next2", 
 			message:"slideshow/next"
 		});
 
@@ -120,7 +152,6 @@ SLIDES.push({
 		_hide(o.topWords); _fadeIn(o.topWords, 150+10);
 		_hide(o.btmWords); _fadeIn(o.btmWords, 150+600);
 		_hide(o.btnNext); _fadeIn(o.btnNext, 150+1200);
-
 	},
 
 	onend: function(self){
@@ -130,6 +161,4 @@ SLIDES.push({
 		self.remove("btnNext");
 		_.clear();
 	}
-
 });
-
